@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Cantidad: ";
+    cin >> n;
+
+    // Se asume un tamaño máximo de 50 para el vector, aunque n es el tamaño actual
+    int v[50];
+    for (int i = 0; i < n; i++) {
+        cout << "Valor " << i << ": ";
+        cin >> v[i];
+    }
+
+    int valor, pos;
+    cout << "Valor a insertar: ";
+    cin >> valor;
+    cout << "Posicion: ";
+    cin >> pos;
+
+    // Desplazar elementos a la derecha desde la posición de inserción
+    for (int i = n; i > pos; i--) {
+        v[i] = v[i - 1];
+    }
+
+    // Insertar el nuevo valor
+    v[pos] = valor;
+    // Aumentar la cantidad de elementos
+    n = n + 1;
+
+    cout << "Vector final:\n";
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl; // Agrego un salto de línea al final para mejor presentación
+
+    return 0;
+}
